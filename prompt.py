@@ -103,11 +103,12 @@ agent3_user ="""
         <OriginalContent>
             <ProductDescription>{product_description}</ProductDescription>
             <OptimizationFeedback>{feedback}</OptimizationFeedback>
+            <Price>{price}</Price>
         </OriginalContent>
         
         <ProductDetails>
-            <Name>Product Name</Name>
-            <Category>Product Category</Category>
+            <Name>{product_name}</Name>
+            <Category>{product_category}</Category>
         </ProductDetails>
     </InputParameters>
     
