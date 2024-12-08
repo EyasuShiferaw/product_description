@@ -1,4 +1,5 @@
 import os
+import re
 import logging
 import aisuite as ai
 from dotenv import load_dotenv
@@ -41,7 +42,7 @@ def get_completion(messages: list[dict]) -> str:
         response = client.chat.completions.create(
                 model=model,
                 messages=messages,
-                temperature=0.75
+                temperature=1.0
             )
     except Exception as e:
         logger.error(f"Error getting completion for messages.\nException: {e}")
@@ -49,87 +50,47 @@ def get_completion(messages: list[dict]) -> str:
     else:
         logger.info(f"successfully got completion for messages")
         return response.choices[0].message.content
-    
 
-  
-def get_xml_data(xml_data: str) -> str:
-    """ Remove any unnecessary data from the given XML data.
-    
+@lru_cache(maxsize=1000)
+def extract_with_regex(xml_data: str) -> dict:
+    """
+    Extracts key elements from a structured XML-like string using regex.
+
     Args:
-        xml_data (str): The XML data to remove unnecessary data from.
+        xml_data (str): The structured string containing the data.
     
     Returns:
-        str: The cleaned XML data.
-    """
-
-    start_tag = "<DescriptionComponent>"
-    end_tag = "</DescriptionComponent>"
-
-    try:
-        start_index = xml_data.index(start_tag)
-        end_index = xml_data.index(end_tag) + len(end_tag)
-        xml_string = xml_data[start_index:end_index]
-    except Exception as e:
-        logger.error(f"Error cleaning XML data.\nException: {e}")
-        raise
-    else:
-        logger.info(f"Successfully cleaned XML data")
-        return xml_string
-
-def parse_xml(xml_string: str) -> list[dict]:
-    """ Parse the XML string into a list of dictionaries.
-    
-    Args:
-        xml_string (str): The XML string to parse.
-    
-    Returns:
-        list[dict]: A list of dictionaries, where each dictionary contains the following keys:
-            - StrategyName: The name of the strategy.
-            - Headlines: A list of headlines.
-            - Description: The description of the strategy.
-            - Explanation: The explanation of the strategy. 
+        dict: A dictionary with extracted elements or None if missing.
     """
     try:
-        tree = ET.fromstring(xml_string)
-       
-    except Exception as e:
-        logger.error(f"Error parsing XML string.\nException: {e}")
-        raise
-    else:
-        parsed_dict = {
-            "tagline": tree.find("Tagline").text if tree.find("Tagline") is not None else None,
-            "description": tree.find("RefinedText").text if tree.find("RefinedText") is not None else None,
-            "features": [
-                feature.text for feature in tree.find("ProductFeatures").findall("Feature")
-            ] if tree.find("ProductFeatures") is not None else None,
-            "price": tree.find("Price").text if tree.find("Price") is not None else None,
+        # Define regex patterns for each key
+        tagline_pattern = r"<Tagline>(.*?)</Tagline>"
+        refined_text_pattern = r"<RefinedText>(.*?)</RefinedText>"
+        features_pattern = r"<ProductFeatures>(.*?)</ProductFeatures>"
+        price_pattern = r"<Price>(.*?)</Price>"
+        
+        # Extract data using regex
+        tagline = re.search(tagline_pattern, xml_data, re.DOTALL)
+        refined_text = re.search(refined_text_pattern, xml_data, re.DOTALL)
+        features = re.search(features_pattern, xml_data, re.DOTALL)
+        price = re.search(price_pattern, xml_data, re.DOTALL)
+        
+        # Process the features list
+        features_list = None
+        if features:
+            features_list = re.findall(r"<Feature>(.*?)</Feature>", features.group(1), re.DOTALL)
+        
+        # Build the dictionary
+        return {
+            "tagline": tagline.group(1).strip() if tagline else None,
+            "description": refined_text.group(1).strip() if refined_text else None,
+            "features": [feature.strip() for feature in features_list] if features_list else None,
+            "price": price.group(1).strip() if price else None
         }
-        logger.info(f"Successfully parsed XML string")
-        return parsed_dict
-
-def pipeline_for_xml_parse(xml_data: str) -> list[dict]:
-    """ A pipeline for parsing XML data.
-
-    Args:
-        xml_data (str): The XML data to parse.
-    
-    Returns:
-        list[dict]: A list of dictionaries, where each dictionary contains the following keys:
-            - StrategyName: The name of the strategy.
-            - Headlines: A list of headlines.
-            - Description: The description of the strategy.
-            - Explanation: The explanation of the strategy.
-    """
-    logger.info(f"Parsing XML string")  
-    product_description = []
-    try:
-        cleaned_xml_data = get_xml_data(xml_data)
-        product_description = parse_xml(cleaned_xml_data)
     except Exception as e:
-        logger.error(f"Error in pipeline for XML parse.\nException: {e}")
+        logger.error(f"Error extracting with regex.\nException: {e}")
         raise
-    else:
-        logger.info(f"Successfully parsed XML data")
-        return product_description
 
-    
+
+
+
