@@ -84,6 +84,7 @@ def _create_styles():
         textColor=colors.darkblue,
         spaceAfter=0.75 * inch,
         alignment=1,
+        leading=34,  # Increased leading for title
     )
 
     tagline_style = ParagraphStyle(
@@ -94,6 +95,7 @@ def _create_styles():
         textColor=colors.grey,
         spaceAfter=0.5 * inch,
         alignment=1,
+        leading=22,  # Increased leading for tagline
     )
 
     heading_style = ParagraphStyle(
