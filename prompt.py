@@ -99,11 +99,6 @@ agent3_system = """
 
 agent3_user ="""
 <ProductDescriptionOptimization>
-    <Metadata>
-        <Version>1.0</Version>
-        <LastUpdated>2024-02-08</LastUpdated>
-    </Metadata>
-    
     <InputParameters>
         <OriginalContent>
             <ProductDescription>{product_description}</ProductDescription>
@@ -182,6 +177,5 @@ agent3_user ="""
             <Price></Price>
         </DescriptionComponent>
     </ExpectedOutput>
-    
 </ProductDescriptionOptimization>
 """
