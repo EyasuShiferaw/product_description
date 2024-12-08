@@ -10,12 +10,13 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__) 
 
 class ProductDescriptionGenerator:
-    def __init__(self,product_name: str, product_category: str, key_features: str, target_customer: str, brand_communication_style: str):
+    def __init__(self,product_name: str, product_category: str, key_features: str, target_customer: str, brand_communication_style: str, price: str):
         self.product_name = product_name
         self.product_category = product_category
         self.key_features = key_features
         self.target_customer = target_customer
         self.brand_communication_style = brand_communication_style
+        self.price = price
         self.product_description = None
         self.feedback = None
         self.final_product_description = None
@@ -70,7 +71,7 @@ class ProductDescriptionGenerator:
         logger.info(f"Generating product description agent three start")
         messages = [
             {"role": "system", "content": agent3_system},
-            {"role": "user", "content": agent3_user.format(product_description=self.product_description, feedback=self.feedback)}
+            {"role": "user", "content": agent3_user.format(product_description=self.product_description, feedback=self.feedback, price=self.price, product_name=self.product_name, product_category=self.product_category)}
         ]
         try:
             self.final_product_description = get_completion(messages=messages)
