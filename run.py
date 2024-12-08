@@ -3,8 +3,11 @@ import logging
 from pathlib import Path
 from para2pdf import generate_pdf
 from agents import ProductDescriptionGenerator
-from utility import pipeline_for_xml_parse
+from utility import extract_with_regex
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Configure logging
@@ -38,7 +41,13 @@ def main():
 
     product_description_generator = ProductDescriptionGenerator(product_name, product_category, key_features, target_customer, brand_communication_style)
     temp_product_description = product_description_generator.agent_pipeline()
-    product_description = pipeline_for_xml_parse(temp_product_description)
+    
+    try:
+        product_description = extract_with_regex(temp_product_description)
+    except Exception as e:
+        logger.error(f"Error extracting with regex.\nException: {e}")
+        return f"Error extracting with regex.\nException: {e}"
+    
     product_description["name"] = product_name
 
    
