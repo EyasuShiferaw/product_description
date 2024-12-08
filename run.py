@@ -16,12 +16,13 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    product_name = os.environ.get('product_name', 'default_value')
-    product_category = os.environ.get('product_category', 'default_value')
+    
+    price = os.environ.get('price', 'default_value')
     key_features = os.environ.get('key_features', 'default_value')
+    product_name = os.environ.get('product_name', 'default_value')
     target_customer = os.environ.get('target_customer', 'default_value')
+    product_category = os.environ.get('product_category', 'default_value')
     brand_communication_style = os.environ.get('brand_communication_style', 'default_value')
-
 
     if product_name == 'default_value' or product_name == '':
         logger.error(f"Can't generate ad, please provide product_name")
@@ -37,11 +38,14 @@ def main():
         return f"Can't generate ad, please provide target_customer"
     if brand_communication_style == 'default_value' or brand_communication_style == '':
         logger.error(f"Can't generate ad, please provide brand_communication_style")
-        return f"Can't generate ad, please provide brand_communication_style"   
+        return f"Can't generate ad, please provide brand_communication_style" 
+    if price == 'default_value' or price == '':
+        logger.error(f"Can't generate ad, please provide price")
+        return f"Can't generate ad, please provide price"
 
-    product_description_generator = ProductDescriptionGenerator(product_name, product_category, key_features, target_customer, brand_communication_style)
+    product_description_generator = ProductDescriptionGenerator(product_name, product_category, key_features, target_customer, brand_communication_style, price)
     temp_product_description = product_description_generator.agent_pipeline()
-    
+
     try:
         product_description = extract_with_regex(temp_product_description)
     except Exception as e:
