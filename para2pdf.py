@@ -228,7 +228,7 @@ def create_content(product_data: dict) -> list:
     content.extend(_create_title_page(product_data, styles))
     content.extend(_create_product_description(product_data, styles))
     content.extend(_create_features_section(product_data, styles))
-    content.extend(_create_price_section(product_data, styles))
+   
 
 
     return content
