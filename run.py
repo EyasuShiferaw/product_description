@@ -5,10 +5,6 @@ from para2pdf import generate_pdf
 from agents import ProductDescriptionGenerator
 from utility import extract_with_regex, brand_style
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -82,7 +78,7 @@ def main():
     output_dir.mkdir(exist_ok=True)  # Create 'output' directory if it doesn't exist
 
     # Define the file path within the 'output' directory
-    output_file = str(output_dir / 'result2.pdf')
+    output_file = str(output_dir / 'result.pdf')
 
     generate_pdf(product_description, output_file)
     
