@@ -24,7 +24,7 @@ def main():
     tagline = os.environ.get('tagline', 'default_value')
     brand_communication_style = os.environ.get('brand_communication_style', 'default_value')
 
-
+    print(brand_communication_style)
     
 
     if product_name == 'default_value' or product_name == '':
