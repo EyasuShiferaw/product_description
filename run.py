@@ -25,9 +25,10 @@ def main():
     key_features = os.environ.get('key_features', 'default_value')
     product_name = os.environ.get('product_name', 'default_value')
     target_customer = os.environ.get('target_customer', 'default_value')
+    tagline = os.environ.get('tagline', 'default_value')
     brand_communication_style = os.environ.get('brand_communication_style', 'default_value')
 
-    print(brand_communication_style)
+
     
 
     if product_name == 'default_value' or product_name == '':
@@ -39,6 +40,9 @@ def main():
     if target_customer == 'default_value' or target_customer == '':
         logger.error(f"Can't generate ad, please provide target_customer")
         return f"Can't generate ad, please provide target_customer"
+    if tagline == 'default_value' or tagline == '':
+        logger.error(f"Can't generate ad, please provide tagline")
+        return f"Can't generate ad, please provide tagline"
     if brand_communication_style == 'default_value' or brand_communication_style == '':
         logger.error(f"Can't generate ad, please provide brand_communication_style")
         return f"Can't generate ad, please provide brand_communication_style" 
@@ -51,6 +55,8 @@ def main():
     except Exception as e:
         logger.error(f"Can't generate ad\nException: {e}")
         return f"Can't generate ad\nException: {e}"
+    
+    communication_style["tagline"] = tagline
     
 
     product_description_generator = ProductDescriptionGenerator(product_name, key_features, target_customer, communication_style, price)
@@ -76,7 +82,7 @@ def main():
     output_dir.mkdir(exist_ok=True)  # Create 'output' directory if it doesn't exist
 
     # Define the file path within the 'output' directory
-    output_file = str(output_dir / 'result1.pdf')
+    output_file = str(output_dir / 'result2.pdf')
 
     generate_pdf(product_description, output_file)
     
