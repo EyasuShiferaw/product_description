@@ -34,7 +34,7 @@ class ProductDescriptionGenerator:
         try:
             self.product_description  = get_completion(messages=messages)
         except Exception as e:
-            logger.error(f"Can't generate ad\nException: {e}")
+            logger.error(f"Can't generate first draft product description\nException: {e}")
             return None
         else:
 
@@ -54,7 +54,7 @@ class ProductDescriptionGenerator:
         try:
             self.feedback = get_completion(messages=messages)
         except Exception as e:
-            logger.error(f"Can't generate ad\nException: {e}")
+            logger.error(f"Can't generate feedback\nException: {e}")
             return None
         else:
             logger.info("successfully generated ad")
@@ -73,7 +73,7 @@ class ProductDescriptionGenerator:
         try:
             self.final_product_description = get_completion(messages=messages)
         except Exception as e:
-            logger.error(f"Can't generate ad\nException: {e}")
+            logger.error(f"Can't generate the final product description\nException: {e}")
             return None
         else:
             logger.info(f"Generating product description agent three finished")
