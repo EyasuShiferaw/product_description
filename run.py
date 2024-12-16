@@ -32,29 +32,29 @@ def main():
     
 
     if product_name == 'default_value' or product_name == '':
-        logger.error(f"Can't generate ad, please provide product_name")
-        return f"Can't generate ad, please provide product_name"
+        logger.error(f"Can't generate product description, please provide product_name")
+        return f"Can't generate product description, please provide product_name"
     if key_features == 'default_value' or key_features == '':
-        logger.error(f"Can't generate ad, please provide key_features")
-        return f"Can't generate ad, please provide key_features"
+        logger.error(f"Can't generate product description, please provide key_features")
+        return f"Can't generate product description, please provide key_features"
     if target_customer == 'default_value' or target_customer == '':
-        logger.error(f"Can't generate ad, please provide target_customer")
-        return f"Can't generate ad, please provide target_customer"
+        logger.error(f"Can't generate product description, please provide target_customer")
+        return f"Can't generate product description, please provide target_customer"
     if tagline == 'default_value' or tagline == '':
-        logger.error(f"Can't generate ad, please provide tagline")
-        return f"Can't generate ad, please provide tagline"
+        logger.error(f"Can't generate product description, please provide tagline")
+        return f"Can't generate product description, please provide tagline"
     if brand_communication_style == 'default_value' or brand_communication_style == '':
-        logger.error(f"Can't generate ad, please provide brand_communication_style")
-        return f"Can't generate ad, please provide brand_communication_style" 
+        logger.error(f"Can't generate product description, please provide brand_communication_style")
+        return f"Can't generate product description, please provide brand_communication_style" 
     if price == 'default_value' or price == '':
-        logger.error(f"Can't generate ad, please provide price")
-        return f"Can't generate ad, please provide price"
+        logger.error(f"Can't generate product description, please provide price")
+        return f"Can't generate product description, please provide price"
     
     try:
         communication_style = brand_style(json_path, brand_communication_style)
     except Exception as e:
-        logger.error(f"Can't generate ad\nException: {e}")
-        return f"Can't generate ad\nException: {e}"
+        logger.error(f"Can't generate product description\nException: {e}")
+        return f"Can't generate product description\nException: {e}"
     
     communication_style["tagline"] = tagline
     
