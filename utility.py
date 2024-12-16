@@ -93,28 +93,49 @@ def extract_with_regex(xml_data: str) -> dict:
         raise
 
 @lru_cache(maxsize=100)
-def brand_style(path: str, key: str) -> dict:
+def brand_style(path: str, keys: str | list[str]) -> dict:
     """
-    Extract the brand communication from the given json file.
+    Extract the brand communication styles from the given JSON file.
     Args:
         path (str): Path to the JSON file containing brand communication styles.
-        key (str): The brand communication style key to look up.
+        keys (str | list): The brand communication style key(s) to look up. 
+                           Can be a single key (str) or a list of keys (list).
     
     Returns:
-        dict: A dictionary containing the brand style information for the given key.
-            Contains 'Description', 'Keywords', and 'Tagline' fields.
-            Returns None if the key is not found.
+        dict: A dictionary containing the brand style information for the given key(s).
+              Contains 'Description', 'Keywords', and 'Tagline' fields for each key.
+              Returns an empty dictionary if none of the keys are found.
     """
-    logger.info(f"Getting brand style for key: {key}")
+    logger.info(f"Getting brand styles for key(s): {keys}")
+
+    # Ensure keys is always a list for uniform processing
+    if isinstance(keys, str):
+        try:
+            # Try to parse the string as JSON
+            parsed_keys = json.loads(keys)
+            if isinstance(parsed_keys, list):
+                keys = parsed_keys
+            else:
+                keys = [keys]
+        except json.JSONDecodeError:
+            # If parsing fails, treat as a single key string
+            keys = [keys]
+
 
     with open(path, "r") as file:
         data = json.load(file)
     
-    try:
-        communication_styles = data[key.strip()]
-    except:
-        logger.error(f"Brand communication style '{key}' not found in communication styles")
-        raise
-    else:
-        logger.info(f"successfully got brand style for key: {key}")
-        return {key:communication_styles}
+    result = {}
+    for key in keys:
+        key = key.strip()  # Remove any whitespace around the key
+        try:
+            communication_style = data[key]
+            result[key] = communication_style
+            logger.info(f"Successfully got brand style for key: {key}")
+        except KeyError:
+            logger.error(f"Brand communication style '{key}' not found in communication styles")
+    
+    if not result:
+        logger.warning("No matching keys were found.")
+    
+    return result
