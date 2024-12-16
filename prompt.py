@@ -133,14 +133,108 @@ agent2_user = """
 
 
 
-agent3_system = """
-        <role>Linguistic Refinement Specialist</role>
-        <primary-objective>
-            Create a final, optimized product description that integrates feedback and maximizes marketing effectiveness.
-        </primary-objective>
- """
+# agent3_system = """
+#         <role>Linguistic Refinement Specialist</role>
+#         <primary-objective>
+#             Create a final, optimized product description that integrates feedback and maximizes marketing effectiveness.
+#         </primary-objective>
+#  """
 
-agent3_user ="""
+# agent3_user ="""
+# <ProductDescriptionOptimization>
+#     <InputParameters>
+#         <OriginalContent>
+#             <ProductDescription>{product_description}</ProductDescription>
+#             <OptimizationFeedback>{feedback}</OptimizationFeedback>
+#             <Price>{price}</Price>
+#         </OriginalContent>
+        
+#         <ProductDetails>
+#             <Name>{product_name}</Name>
+#             <Category>{product_category}</Category>
+#         </ProductDetails>
+#     </InputParameters>
+    
+#     <OptimizationObjectives>
+#         <RefinementGoals>
+#             <Goal>Incorporate previous feedback</Goal>
+#             <Goal>Optimize for search engines</Goal>
+#             <Goal>Enhance conversion potential</Goal>
+#             <Goal>Maintain original product essence</Goal>
+#         </RefinementGoals>
+        
+#         <ContentOptimizationStrategies>
+#             <Strategy>Strategic keyword placement</Strategy>
+#             <Strategy>Improve readability</Strategy>
+#             <Strategy>Balance technical and emotional aspects</Strategy>
+#             <Strategy>Create compelling call-to-action</Strategy>
+#         </ContentOptimizationStrategies>
+#     </OptimizationObjectives>
+    
+#     <OutputSpecifications>
+#         <ContentRequirements>
+#             <LengthRange>
+#                 <Minimum>150</Minimum>
+#                 <Maximum>300</Maximum>
+#             </LengthRange>
+#             <Tone>Professional and engaging</Tone>
+#             <Structure>Paragraph-based narrative</Structure>
+#         </ContentRequirements>
+        
+#         <FinalRefinementInstructions>
+#             <Instruction>Integrate all optimization feedback</Instruction>
+#             <Instruction>Ensure brand voice consistency</Instruction>
+#             <Instruction>Maximize conversion potential</Instruction>
+#             <Instruction>Create a unique, compelling narrative</Instruction>
+#         </FinalRefinementInstructions>
+#     </OutputSpecifications>
+
+    
+#     <RefinementInstructions>
+#         <Objectives>
+#             <Objective>Address all optimization feedback</Objective>
+#             <Objective>Sound natural and engaging</Objective>
+#             <Objective>Highlight product value proposition</Objective>
+#             <Objective>Encourage customer action</Objective>
+#             <Objective>Stand out from competitor descriptions</Objective>
+#         </Objectives>
+#     </RefinementInstructions>
+
+
+#     <ValidationCriteria>
+#         <Criterion>Adherence to optimization goals</Criterion>
+#         <Criterion>Clarity of communication</Criterion>
+#         <Criterion>Conversion potential</Criterion>
+#         <Criterion>Brand voice alignment</Criterion>
+#     </ValidationCriteria>
+    
+#     <ExpectedOutput>
+#         <DescriptionComponent>
+#             <Tagline></Tagline>
+#             <RefinedText> completely-optimized-description </RefinedText>
+#              <!-- the text of the description in paragraph based -->
+#             <ProductFeatures>
+#                 <Feature></Feature>
+#                 <Feature></Feature>
+#                  <!-- Repeat for each feature -->
+#             </ProductFeatures>
+#             <Price></Price>
+#         </DescriptionComponent>
+#     </ExpectedOutput>
+# </ProductDescriptionOptimization>
+# """
+
+
+
+
+agent3_system = """
+<role>Linguistic Refinement Specialist</role>
+<primary-objective>
+    Create a final, optimized product description that integrates feedback, maximizes marketing effectiveness, differentiates from competitors, and drives conversions.
+</primary-objective>
+"""
+
+agent3_user = """
 <ProductDescriptionOptimization>
     <InputParameters>
         <OriginalContent>
@@ -148,78 +242,69 @@ agent3_user ="""
             <OptimizationFeedback>{feedback}</OptimizationFeedback>
             <Price>{price}</Price>
         </OriginalContent>
-        
+
         <ProductDetails>
             <Name>{product_name}</Name>
-            <Category>{product_category}</Category>
+            <KeyFeatures>{key_features}</KeyFeatures>
+            <TargetAudience>{target_customer}</TargetAudience>
+            <BrandVoice>{brand_communication_style}</BrandVoice>
         </ProductDetails>
     </InputParameters>
-    
-    <OptimizationObjectives>
+
+    <OptimizationInstructions>
         <RefinementGoals>
-            <Goal>Incorporate previous feedback</Goal>
-            <Goal>Optimize for search engines</Goal>
-            <Goal>Enhance conversion potential</Goal>
-            <Goal>Maintain original product essence</Goal>
+            <Goal>Incorporate all previous optimization feedback (SEO, conversion, technical accuracy, linguistic refinement, brand voice).</Goal>
+            <Goal>Optimize for search engines through strategic keyword placement (primary and secondary keywords identified by Feedback).</Goal>
+            <Goal>Enhance conversion potential by clarifying the value proposition, addressing potential objections, and including a compelling call to action.</Goal>
+            <Goal>Maintain the core message and key selling points of the original product description while enhancing its impact.</Goal>
         </RefinementGoals>
-        
-        <ContentOptimizationStrategies>
-            <Strategy>Strategic keyword placement</Strategy>
-            <Strategy>Improve readability</Strategy>
-            <Strategy>Balance technical and emotional aspects</Strategy>
-            <Strategy>Create compelling call-to-action</Strategy>
-        </ContentOptimizationStrategies>
-    </OptimizationObjectives>
-    
+
+        <ContentStrategies>
+            <Strategy>Improve readability by using clear, concise language, appropriate sentence structure, and a logical flow.</Strategy>
+            <Strategy>Balance technical details with emotionally engaging language to appeal to the target audience.</Strategy>
+            <Strategy>Create a compelling call to action that encourages customer action (e.g., "Buy Now," "Learn More," "Get Started Today").</Strategy>
+            <Strategy>If applicable, create or select a relevant tagline that encapsulates the product's essence and aligns with the brand voice (refer to the `communication_styles` dictionary for inspiration, using {brand_communication_style} as the key).</Strategy>
+            <Strategy>Integrate the price {price} into the description in a clear and strategic manner, such as near the call to action or after highlighting the product's value.</Strategy>
+        </ContentStrategies>
+    </OptimizationInstructions>
+
     <OutputSpecifications>
         <ContentRequirements>
             <LengthRange>
                 <Minimum>150</Minimum>
                 <Maximum>300</Maximum>
             </LengthRange>
-            <Tone>Professional and engaging</Tone>
+            <Tone>Professional and engaging, aligned with {brand_communication_style}</Tone>
             <Structure>Paragraph-based narrative</Structure>
         </ContentRequirements>
-        
-        <FinalRefinementInstructions>
-            <Instruction>Integrate all optimization feedback</Instruction>
-            <Instruction>Ensure brand voice consistency</Instruction>
-            <Instruction>Maximize conversion potential</Instruction>
-            <Instruction>Create a unique, compelling narrative</Instruction>
-        </FinalRefinementInstructions>
+
+        <FinalInstructions>
+            <Instruction>Integrate all optimization feedback and strategies.</Instruction>
+            <Instruction>Ensure brand voice consistency throughout the description.</Instruction>
+            <Instruction>Maximize conversion potential by addressing all key selling points and including a clear call to action.</Instruction>
+            <Instruction>Create a unique and compelling narrative that differentiates the product and resonates with the target audience.</Instruction>
+        </FinalInstructions>
     </OutputSpecifications>
 
-    
-    <RefinementInstructions>
-        <Objectives>
-            <Objective>Address all optimization feedback</Objective>
-            <Objective>Sound natural and engaging</Objective>
-            <Objective>Highlight product value proposition</Objective>
-            <Objective>Encourage customer action</Objective>
-            <Objective>Stand out from competitor descriptions</Objective>
-        </Objectives>
-    </RefinementInstructions>
-
-
     <ValidationCriteria>
-        <Criterion>Adherence to optimization goals</Criterion>
-        <Criterion>Clarity of communication</Criterion>
-        <Criterion>Conversion potential</Criterion>
-        <Criterion>Brand voice alignment</Criterion>
+        <Criterion>Adherence to optimization goals (SEO, conversion, technical accuracy, linguistic refinement, brand voice).</Criterion>
+        <Criterion>Clarity and readability of communication.</Criterion>
+        <Criterion>Conversion potential (strength of value proposition and call to action).</Criterion>
+        <Criterion>Brand voice alignment and consistency.</Criterion>
+        <Criterion>Uniqueness and differentiation from competitors.</Criterion>
     </ValidationCriteria>
-    
+
     <ExpectedOutput>
         <DescriptionComponent>
             <Tagline></Tagline>
-            <RefinedText> completely-optimized-description </RefinedText>
-             <!-- the text of the description in paragraph based -->
+            <RefinedText>completely-optimized-description</RefinedText>
+                <!-- the text of the description in paragraph based -->
             <ProductFeatures>
                 <Feature></Feature>
                 <Feature></Feature>
-                 <!-- Repeat for each feature -->
+                <!-- Repeat for each feature -->
             </ProductFeatures>
             <Price></Price>
         </DescriptionComponent>
     </ExpectedOutput>
-</ProductDescriptionOptimization>
 """
