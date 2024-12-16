@@ -62,6 +62,7 @@ agent1_user = """
 </evaluation-criteria>
 """
 
+
 agent2_system = """
 <role>Critical Optimization Analyst</role>
 <primary-objective>
@@ -128,103 +129,6 @@ agent2_user = """
     - Provide quantifiable feedback and improvement suggestions, following the specified feedback structure.
 </analysis-instructions>
 """
-
-
-
-
-
-# agent3_system = """
-#         <role>Linguistic Refinement Specialist</role>
-#         <primary-objective>
-#             Create a final, optimized product description that integrates feedback and maximizes marketing effectiveness.
-#         </primary-objective>
-#  """
-
-# agent3_user ="""
-# <ProductDescriptionOptimization>
-#     <InputParameters>
-#         <OriginalContent>
-#             <ProductDescription>{product_description}</ProductDescription>
-#             <OptimizationFeedback>{feedback}</OptimizationFeedback>
-#             <Price>{price}</Price>
-#         </OriginalContent>
-        
-#         <ProductDetails>
-#             <Name>{product_name}</Name>
-#             <Category>{product_category}</Category>
-#         </ProductDetails>
-#     </InputParameters>
-    
-#     <OptimizationObjectives>
-#         <RefinementGoals>
-#             <Goal>Incorporate previous feedback</Goal>
-#             <Goal>Optimize for search engines</Goal>
-#             <Goal>Enhance conversion potential</Goal>
-#             <Goal>Maintain original product essence</Goal>
-#         </RefinementGoals>
-        
-#         <ContentOptimizationStrategies>
-#             <Strategy>Strategic keyword placement</Strategy>
-#             <Strategy>Improve readability</Strategy>
-#             <Strategy>Balance technical and emotional aspects</Strategy>
-#             <Strategy>Create compelling call-to-action</Strategy>
-#         </ContentOptimizationStrategies>
-#     </OptimizationObjectives>
-    
-#     <OutputSpecifications>
-#         <ContentRequirements>
-#             <LengthRange>
-#                 <Minimum>150</Minimum>
-#                 <Maximum>300</Maximum>
-#             </LengthRange>
-#             <Tone>Professional and engaging</Tone>
-#             <Structure>Paragraph-based narrative</Structure>
-#         </ContentRequirements>
-        
-#         <FinalRefinementInstructions>
-#             <Instruction>Integrate all optimization feedback</Instruction>
-#             <Instruction>Ensure brand voice consistency</Instruction>
-#             <Instruction>Maximize conversion potential</Instruction>
-#             <Instruction>Create a unique, compelling narrative</Instruction>
-#         </FinalRefinementInstructions>
-#     </OutputSpecifications>
-
-    
-#     <RefinementInstructions>
-#         <Objectives>
-#             <Objective>Address all optimization feedback</Objective>
-#             <Objective>Sound natural and engaging</Objective>
-#             <Objective>Highlight product value proposition</Objective>
-#             <Objective>Encourage customer action</Objective>
-#             <Objective>Stand out from competitor descriptions</Objective>
-#         </Objectives>
-#     </RefinementInstructions>
-
-
-#     <ValidationCriteria>
-#         <Criterion>Adherence to optimization goals</Criterion>
-#         <Criterion>Clarity of communication</Criterion>
-#         <Criterion>Conversion potential</Criterion>
-#         <Criterion>Brand voice alignment</Criterion>
-#     </ValidationCriteria>
-    
-#     <ExpectedOutput>
-#         <DescriptionComponent>
-#             <Tagline></Tagline>
-#             <RefinedText> completely-optimized-description </RefinedText>
-#              <!-- the text of the description in paragraph based -->
-#             <ProductFeatures>
-#                 <Feature></Feature>
-#                 <Feature></Feature>
-#                  <!-- Repeat for each feature -->
-#             </ProductFeatures>
-#             <Price></Price>
-#         </DescriptionComponent>
-#     </ExpectedOutput>
-# </ProductDescriptionOptimization>
-# """
-
-
 
 
 agent3_system = """
