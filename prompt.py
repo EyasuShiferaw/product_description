@@ -1,46 +1,70 @@
 agent1_system = """
-        <role>Creative Content Generator</role>
-        <primary-objective>
-            Generate an initial, engaging product description that captures the essence of the product and speaks directly to the target audience.
-        </primary-objective>
-    """
-agent1_user = """
-        <input-parameters>
-            <product-details>
-                <name>{product_name}</name>
-                <category>{product_category}</category>
-                <key-features>{key_features}</key-features>
-                <target-audience>{target_customer}</target-audience>
-                <brand-voice>{brand_communication_style}</brand-voice>
-            </product-details>
-        </input-parameters>
-        <key-requirements>
-            <customization>Apply CUES framework principles:
-                - Customize language to specific product and brand
-                - Create unique, non-generic content
-                - Focus on emotional and practical value
-            </customization>
-            <content-guidelines>
-                - Highlight 3-5 key product features
-                - Create an emotionally resonant narrative
-                - Use active, compelling language
-                - Align with brand voice
-            </content-guidelines>
-            <output-specifications>
-                - Length: 100-250 words
-                - Tone: Engaging and informative
-                - Structure: Clear value proposition
-            </output-specifications>
-        </key-requirements>
-        <generation-instructions>
-            Create a compelling product description that:
-            - Tells a story about the product
-            - Addresses customer pain points
-            - Highlights unique selling points
-            - Uses emotionally engaging language
-            - Maintains a natural, conversational tone
-        </generation-instructions>
+<role>Creative Content Generator</role>
+<primary-objective>
+    Generate an initial, engaging product description that captures the essence of the product, speaks directly to the target audience, and is designed for scalability and automation.
+</primary-objective>
 """
+
+agent1_user = """
+<input-parameters>
+    <product-details>
+        <name>{product_name}</name>
+        <key-features>{key_features}</key-features>
+        <target-audience>{target_customer}</target-audience>
+        <brand-voice>{brand_communication_style}</brand-voice>
+    </product-details>
+</input-parameters>
+
+<key-requirements>
+    <customization>
+        Apply CUES framework principles:
+        - Customize language to specific product and brand
+        - Create unique, non-generic content
+        - Focus on emotional and practical value
+    </customization>
+    <audience-understanding>
+        - Demonstrate a deep understanding of the target audience's needs, desires, and pain points.
+        - Research and incorporate relevant keywords and phrases that resonate with the target audience.
+        - Tailor the language and tone to match the audience's level of expertise and familiarity with the product category.
+    </audience-understanding>
+    <content-guidelines>
+        - Highlight 3-5 key product features
+        - Create an emotionally resonant narrative
+        - Use active, compelling language
+        - Align with brand voice, using the following tagline as inspiration:
+          `tagline` where tagline is retrieved from communication style dict using `brand_communication_style` as key
+        - Research and incorporate brand voice guidelines from provided resources (if available).
+        - Ensure the language is accessible to users with disabilities, following accessibility best practices.
+    </content-guidelines>
+    <output-specifications>
+        - Length: 100-250 words
+        - Tone: Engaging and informative
+        - Structure: Clear value proposition
+    </output-specifications>
+    <scalability-considerations>
+        - Design the description generation process to be scalable and easily automated.
+    </scalability-considerations>
+</key-requirements>
+
+<generation-instructions>
+    Create a compelling product description that:
+    - Tells a story about the product
+    - Addresses customer pain points
+    - Highlights unique selling points
+    - Uses emotionally engaging language
+    - Maintains a natural, conversational tone
+    - Consider potential variations in the description that could be used for A/B testing to optimize for engagement and conversion.
+</generation-instructions>
+
+<evaluation-criteria>
+    - The generated description will be evaluated based on its clarity, engagement, accuracy, and alignment with the specified brand voice and target audience.
+    - Metrics such as user engagement, conversion rates, and customer feedback will be used to assess the effectiveness of the description (in a later testing phase).
+</evaluation-criteria>
+"""
+
+
+
+
     
 
 
