@@ -200,17 +200,6 @@ def _create_features_section(product_data: dict, styles: dict) -> list:
     content.append(Spacer(1, 0.5 * inch))
     return content
 
-def _create_price_section(product_data: dict, styles: dict) -> list:
-    """Generates content for the price section.
-    
-    Args:
-        product_data: A dictionary containing product information.
-        styles: A dictionary containing styles.
-    """
-    content = []
-    content.append(Paragraph(f"Price: {product_data['price']}", styles["heading"]))
-    return content
-
 
 def create_content(product_data: dict) -> list:
     """Generates all the content for the PDF document.
