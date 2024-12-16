@@ -62,58 +62,77 @@ agent1_user = """
 </evaluation-criteria>
 """
 
-
-
-
-    
-
-
 agent2_system = """
-        <role>Critical Optimization Analyst</role>
-        <primary-objective>
-            Provide strategic, data-driven feedback to enhance the product description's marketing effectiveness and SEO potential.
-        </primary-objective>
-        """
+<role>Critical Optimization Analyst</role>
+<primary-objective>
+    Provide strategic, data-driven feedback to enhance the product description's marketing effectiveness, SEO potential, and conversion likelihood.
+</primary-objective>
+"""
 
 agent2_user = """
-        <input-parameters>
-            <original-description>{product_description}</original-description>
-            <product-details>
-                <key-features>
-                   {key_features}
-                </key-features>
-                <target-audience>{target_customer}</target-audience>
-                <brand-voice>{brand_communication_style}</brand-voice>
-            </product-details>
-        </input-parameters>
-        <key-requirements>
-            <optimization-criteria>
-                - SEO keyword optimization
-                - Conversion potential assessment
-                - Technical accuracy verification
-                - Linguistic refinement recommendations
-            </optimization-criteria>
-            <analysis-dimensions>
-                - Clarity (1-10 scale)
-                - Emotional Impact (1-10 scale)
-                - SEO Potential (1-10 scale)
-                - Conversion Likelihood (1-10 scale)
-            </analysis-dimensions>
-            <feedback-guidelines>
-                - Provide specific, actionable suggestions
-                - Highlight strengths and improvement areas
-                - Offer concrete optimization strategies
-            </feedback-guidelines>
-        </key-requirements>
-        <analysis-instructions>
-            Critically evaluate the product description:
-            - Assess SEO optimization potential
-            - Identify areas for linguistic improvement
-            - Check alignment with marketing objectives
-            - Provide quantifiable feedback and improvement suggestions
-        </analysis-instructions>
-        """
-    
+<input-parameters>
+    <original-description>{product_description}</original-description>
+    <product-details>
+        <key-features>{key_features}</key-features>
+        <target-audience>{target_customer}</target-audience>
+        <brand-voice>{brand_communication_style}</brand-voice>
+    </product-details>
+</input-parameters>
+
+<key-requirements>
+    <optimization-criteria>
+        - SEO keyword optimization:
+            - Conduct keyword research related to the product and target audience.
+            - Identify primary and secondary keywords.
+            - Suggest optimal keyword placement within the description (title, headings, body, meta description).
+        - Conversion potential assessment:
+            - Evaluate the clarity and strength of the value proposition.
+            - Assess the effectiveness of calls to action (or suggest improvements if lacking).
+            - Identify and address potential customer objections or concerns.
+            - Analyze the overall persuasive power of the description.
+        - Technical accuracy verification:
+            - Cross-reference product details and claims with provided technical documentation or reliable online resources.
+            - Flag any discrepancies or inaccuracies.
+        - Linguistic refinement recommendations:
+            - Evaluate grammar, spelling, punctuation, and sentence structure.
+            - Assess readability and suggest improvements for clarity and conciseness.
+            - Ensure the tone is appropriate for the target audience and aligns with the brand voice.
+            - Recommend using stronger verbs and a more active voice where appropriate.
+        - Brand voice alignment:
+            - Verify consistency with the specified brand voice {brand_communication_style} and provided brand guidelines (if available).
+            - Point out any deviations and suggest revisions to ensure alignment.
+    </optimization-criteria>
+    <analysis-dimensions>
+        - Clarity (1-10 scale)
+        - Emotional Impact (1-10 scale)
+        - SEO Potential (1-10 scale)
+        - Conversion Likelihood (1-10 scale)
+    </analysis-dimensions>
+    <feedback-guidelines>
+        - Provide specific, actionable suggestions.
+        - Highlight strengths and improvement areas.
+        - Offer concrete optimization strategies.
+        - Use the following structure for feedback:
+            - **Overall Assessment:** (Brief summary of the description's effectiveness)
+            - **Strengths:** (List the positive aspects)
+            - **Areas for Improvement:** (Detailed feedback based on optimization criteria)
+            - **Ratings:** (Provide scores for each analysis dimension)
+    </feedback-guidelines>
+</key-requirements>
+
+<analysis-instructions>
+    Critically evaluate the product description:
+    - Perform thorough SEO analysis and keyword research.
+    - Identify areas for linguistic improvement and brand voice alignment.
+    - Check alignment with marketing objectives and technical accuracy using available resources.
+    - Provide quantifiable feedback and improvement suggestions, following the specified feedback structure.
+</analysis-instructions>
+"""
+
+
+
+
+
 agent3_system = """
         <role>Linguistic Refinement Specialist</role>
         <primary-objective>
