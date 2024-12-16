@@ -23,7 +23,7 @@
         "Industries": ["Marketing analytics", "business intelligence", "financial technology", "research"],
         "Example": "Our solution increased conversion rates by 18% and reduced customer churn by 12% in the first quarter, resulting in a significant ROI for our clients."
     },
-    "Service-Oriented/Customer-Centric": {
+    "Service-Oriented": {
         "Description": "Focuses on the customer's needs and how the product or service solves their problems. Language is friendly, helpful, and emphasizes the value proposition from the customer's perspective.",
         "Keywords": ["Customer satisfaction", "support", "solutions", "personalized", "dedicated", "reliable", "value"],
         "Industries": ["Hospitality", "customer service", "retail", "software support", "consulting"],
