@@ -92,6 +92,7 @@ def extract_with_regex(xml_data: str) -> dict:
         logger.error(f"Error extracting with regex.\nException: {e}")
         raise
 
+@lru_cache(maxsize=100)
 def brand_style(path: str, key: str) -> dict:
     """
     Extract the brand communication from the given json file.
@@ -108,7 +109,7 @@ def brand_style(path: str, key: str) -> dict:
 
     with open(path, "r") as file:
         data = json.load(file)
-
+    
     try:
         communication_styles = data[key.strip()]
     except:
