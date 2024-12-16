@@ -1,5 +1,6 @@
 import os
 import re
+import json
 import logging
 import aisuite as ai
 from dotenv import load_dotenv
@@ -91,5 +92,28 @@ def extract_with_regex(xml_data: str) -> dict:
         logger.error(f"Error extracting with regex.\nException: {e}")
         raise
 
+def brand_style(path: str, key: str) -> dict:
+    """
+    Extract the brand communication from the given json file.
+    Args:
+        path (str): Path to the JSON file containing brand communication styles.
+        key (str): The brand communication style key to look up.
+    
+    Returns:
+        dict: A dictionary containing the brand style information for the given key.
+            Contains 'Description', 'Keywords', and 'Tagline' fields.
+            Returns None if the key is not found.
+    """
+    logger.info(f"Getting brand style for key: {key}")
 
+    with open(path, "r") as file:
+        data = json.load(file)
 
+    try:
+        communication_styles = data[key.strip()]
+    except:
+        logger.error(f"Brand communication style '{key}' not found in communication styles")
+        raise
+    else:
+        logger.info(f"successfully got brand style for key: {key}")
+        return {key:communication_styles}
