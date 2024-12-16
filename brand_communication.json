@@ -1,0 +1,50 @@
+{
+    "Technical/Functional": {
+        "Description": "Emphasizes precise technical specifications, features, and performance data. Language is objective, detailed, and uses industry-specific terminology. Focuses on how the product works and what it can do.",
+        "Keywords": ["Performance", "specifications", "efficiency", "functionality", "precision", "reliability"],
+        "Industries": ["Engineering", "manufacturing", "software development", "scientific instruments", "IT infrastructure"],
+        "Example": "The X-5000 features a 12-core processor, 64GB of DDR5 RAM, and a 2TB NVMe SSD, delivering exceptional performance for demanding workloads."
+    },
+    "Authoritative/Expert": {
+        "Description": "Projects confidence and expertise. Language is assertive, direct, and often uses industry jargon to establish credibility. Focuses on the company's leadership and the product's superior quality.",
+        "Keywords": ["Leadership", "innovation", "quality", "excellence", "performance", "trusted", "proven"],
+        "Industries": ["Financial services", "consulting", "legal", "high-end technology", "pharmaceuticals"],
+        "Example": "With over 30 years of experience in the financial markets, we provide unparalleled investment strategies to maximize your returns."
+    },
+    "Informative/Educational": {
+        "Description": "Focuses on providing clear, concise information and educating the audience about the product's benefits and uses. Language is straightforward, objective, and avoids overly technical jargon.",
+        "Keywords": ["Benefits", "solutions", "learn", "understand", "discover", "how-to", "features"],
+        "Industries": ["Healthcare", "education", "software", "consumer electronics", "SaaS"],
+        "Example": "Our software streamlines your workflow by automating repetitive tasks and providing real-time data insights, helping you make informed decisions."
+    },
+    "Analytical/Data-Driven": {
+        "Description": "Emphasizes quantifiable results, metrics, and evidence-based claims. Language is precise, objective, and often uses data visualizations or statistics to support its points.",
+        "Keywords": ["Results", "data", "metrics", "performance", "ROI", "efficiency", "optimization", "proven"],
+        "Industries": ["Marketing analytics", "business intelligence", "financial technology", "research"],
+        "Example": "Our solution increased conversion rates by 18% and reduced customer churn by 12% in the first quarter, resulting in a significant ROI for our clients."
+    },
+    "Service-Oriented/Customer-Centric": {
+        "Description": "Focuses on the customer's needs and how the product or service solves their problems. Language is friendly, helpful, and emphasizes the value proposition from the customer's perspective.",
+        "Keywords": ["Customer satisfaction", "support", "solutions", "personalized", "dedicated", "reliable", "value"],
+        "Industries": ["Hospitality", "customer service", "retail", "software support", "consulting"],
+        "Example": "We are committed to providing exceptional customer service and ensuring that you have a seamless experience with our product."
+    },
+    "Corporate/Formal": {
+        "Description": "Maintains a professional and polished tone. Language is precise, avoids slang or contractions, and adheres to a formal communication style. Focuses on company values, mission, and commitment to quality.",
+        "Keywords": ["Integrity", "commitment", "excellence", "responsibility", "sustainability", "innovation"],
+        "Industries": ["Large corporations", "government", "legal", "financial institutions", "insurance"],
+        "Example": "Our organization is dedicated to upholding the highest standards of ethical conduct and providing exceptional value to our stakeholders."
+    },
+    "Modern/Minimalist": {
+        "Description": "Emphasizes clarity, simplicity, and a clean aesthetic. Language is concise, direct, and avoids unnecessary jargon or embellishment. Focuses on key benefits and a sleek, contemporary image.",
+        "Keywords": ["Simple", "clean", "modern", "innovative", "efficient", "elegant", "intuitive", "design"],
+        "Industries": ["Technology startups", "design agencies", "architecture", "fashion", "consumer electronics"],
+        "Example": "Experience seamless productivity with our intuitive interface and powerful features. Designed for the modern professional."
+    },
+    "Bold/Visionary": {
+        "Description": "Projects a forward-thinking, innovative, and ambitious image. Language is confident, inspiring, and focuses on the future potential and transformative impact of the product or company.",
+        "Keywords": ["Innovation", "future", "disrupt", "transform", "revolutionize", "imagine", "breakthrough", "pioneering"],
+        "Industries": ["Technology", "renewable energy", "venture capital", "space exploration", "cutting-edge research"],
+        "Example": "We are building the future of transportation, creating sustainable and intelligent solutions that will transform the way we move."
+    }
+}
