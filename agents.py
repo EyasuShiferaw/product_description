@@ -2,19 +2,17 @@ import logging
 from functools import lru_cache
 from prompt import agent1_system, agent2_system, agent3_system, agent1_user, agent2_user, agent3_user
 from utility import get_completion
-from dotenv import load_dotenv
 
-load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__) 
 
 class ProductDescriptionGenerator:
-    def __init__(self,product_name: str, key_features: str, target_customer: str, brand_communication_style: str, price: str):
+    def __init__(self,product_name: str, key_features: str, target_customer: str, communication_style: str, price: str):
         self.product_name = product_name
         self.key_features = key_features
         self.target_customer = target_customer
-        self.brand_communication_style = brand_communication_style
+        self.brand_communication_style = communication_style
         self.price = price
         self.product_description = None
         self.feedback = None
